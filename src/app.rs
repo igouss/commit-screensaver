@@ -101,8 +101,11 @@ mod tests {
             Duration::from_millis(self.0.load(Ordering::Relaxed))
         }
 
+        /// Moves on 100 ms. A watch still going after two minutes never
+        /// will: fail rather than hang.
         fn sleep(&self) {
-            self.0.fetch_add(100, Ordering::Relaxed);
+            let now = self.0.fetch_add(100, Ordering::Relaxed) + 100;
+            assert!(now <= 120_000, "still watching after two minutes");
             thread::sleep(Duration::from_millis(1));
         }
     }
@@ -137,9 +140,13 @@ mod tests {
                     return Ok(());
                 }
             }
-            let deadline = Instant::now() + Duration::from_secs(10);
+            // An error rather than a panic, so the session still stops the
+            // watch and the test fails instead of hanging.
+            let deadline = Instant::now() + Duration::from_secs(3);
             while !stop.load(Ordering::Relaxed) {
-                assert!(Instant::now() < deadline, "never stopped");
+                if Instant::now() > deadline {
+                    return Err("never stopped".to_owned());
+                }
                 thread::sleep(Duration::from_millis(1));
             }
             Ok(())

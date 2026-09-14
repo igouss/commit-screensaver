@@ -1,0 +1,14 @@
+# cargo mutants: mutation testing of everything unit tests can reach.
+#
+# Left out is code that only does something with a live terminal or session:
+# main.rs wiring (tests/cli.rs runs the binary instead), gitlogue's UI taking
+# over the terminal, asking the real Hyprland session, hiding its pointer, and
+# signalling sibling processes (which a test must never do).
+exclude_globs = ["src/main.rs", "src/adapters/siblings.rs"]
+
+exclude_re = [
+    "impl Player for Replay",
+    "impl Presence for Hyprland",
+    "HiddenPointer",
+    "set_pointer_invisible",
+]

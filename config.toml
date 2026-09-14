@@ -1,0 +1,17 @@
+# commit-screensaver: which Git repositories to replay, and how.
+#
+# Each time the screensaver starts, it picks one of these repositories at
+# random, then types out random commits from it until dismissed. Paths may
+# start with ~/; relative ones are taken from the directory this file is read
+# from.
+repos = [
+  "~/Projects/shader-screensaver",
+  "~/Projects/gitlogue",
+  "~/Projects/commit-screensaver",
+]
+
+# Colour theme. `gitlogue theme list` names them all.
+theme = "tokyo-night"
+
+# Milliseconds per typed character.
+speed = 30

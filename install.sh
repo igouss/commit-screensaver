@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Install commit-screensaver from this checkout: build it, and link the config
-# into place. The idle screensaver runs it through shader-screensaver's
-# launcher override, depending on `mode` in that repo's settings.conf.
+# into place.
 
 set -euo pipefail
 

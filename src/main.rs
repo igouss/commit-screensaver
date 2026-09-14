@@ -1,6 +1,6 @@
 //! A screensaver that replays random commits from the Git repositories in its
-//! config file with gitlogue's editor animation. Omarchy's screensaver
-//! launcher runs it in a fullscreen terminal on each monitor.
+//! config file with gitlogue's editor animation. With `--app-id` it acts as a
+//! screensaver in a fullscreen terminal window.
 
 mod adapters;
 mod app;

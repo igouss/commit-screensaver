@@ -19,13 +19,10 @@ This builds `~/.local/bin/commit-screensaver` (release profile: fat LTO, one
 codegen unit, `target-cpu=native`) and links this checkout's `config.toml` to
 `~/.config/commit-screensaver/config.toml`.
 
-The idle screensaver starts it through
+Nothing starts it on idle:
 [shader-screensaver](https://github.com/igouss/shader-screensaver)'s launcher
-override, according to `mode` in that repo's `settings.conf`:
-
-- `shaders`: GLSL shaders only.
-- `commits`: this, in a fullscreen `foot` window on each monitor.
-- `mixed`: one of the two, picked at random each time.
+override runs only GLSL shaders. Run `commit-screensaver` in a terminal to
+watch it.
 
 ## Config
 

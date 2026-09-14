@@ -8,6 +8,9 @@ repos = [
   "~/Projects/shader-screensaver",
   "~/Projects/gitlogue",
   "~/Projects/commit-screensaver",
+  "~/Projects/kbe",
+  "~/Projects/hex-lint",
+  "~/Projects/gitweb-rs",
 ]
 
 # Colour theme. `gitlogue theme list` names them all.

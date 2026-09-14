@@ -17,4 +17,4 @@ repos = [
 theme = "tokyo-night"
 
 # Milliseconds per typed character.
-speed = 30
+speed = 15
